@@ -1,11 +1,11 @@
-export default function ProductCard() {
+export default function ProductCard({ name, price, category }) {
   return (
     <>
       <div className="product-card">
-        <div className="title">Назва товару</div>
-        <div className="price">Ціна: X₴</div>
-        <div className="category">Категорія: ...</div>
-        <div className="buy-button">Купити</div>
+        <div className="title">{name}</div>
+        <div className="price">Ціна: {price}₴</div>
+        <div className="category">Категорія: {category}</div>
+        <button className="buy-button">Купити</button>
       </div>
     </>
   )
