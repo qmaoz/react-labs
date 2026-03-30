@@ -164,6 +164,8 @@ p {
   flex-direction: column;
   gap: 1em;
   padding: 1em;
+  position: relative;
+  overflow: hidden;
 
   text-align: left;
   background-color: var(--accent-bg);
@@ -178,12 +180,12 @@ p {
   text-align: left;
 }
 
-.product-card .buy-button {
+button {
   display: block;
   width: 100%;
   padding: 0.6em 1.5em;
   margin: 0 auto;
-
+  
   cursor: pointer;
   font-size: inherit;
   font-family: inherit;
@@ -197,25 +199,51 @@ p {
     box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-weight: 600;
-
+  
   backface-visibility: hidden;
   will-change: transform;
 }
 
-.product-card .buy-button:focus-visible {
+button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
-.product-card .buy-button:hover {
+button:hover {
   filter: brightness(110%);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.product-card .buy-button:active {
+button:active {
   transform: scale(0.96);
   filter: brightness(90%);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card.bought::after {
+  position: absolute;
+  top: 1.2em;
+  right: -10.1em;
+
+  padding: 0.4em 10em;
+  line-height: 1;
+
+  display: block;
+  content: 'В кошику';
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+  transform: rotate(45deg);
+
+  color: var(--text-h);
+  background: #d55;
+}
+
+
+
+.order-button {
+  margin: 2em auto 1em;
+  width: calc(33% - 0.5em);
 }
 
 
