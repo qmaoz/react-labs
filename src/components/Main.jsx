@@ -1,7 +1,6 @@
 import { useState } from "react";
 import FiltrationBlock from "./FiltrationBlock";
 import ProductCardsBlock from "./ProductCardsBlock";
-import AddProductForm from "./AddProductForm"
 
 export default function Main({ products, setProducts }) {
   const uniqueCategories = [...new Set(products.map(p => p.category))];
@@ -22,7 +21,6 @@ export default function Main({ products, setProducts }) {
 
   return (
     <main className="main">
-      <AddProductForm setProducts={setProducts} />
       <FiltrationBlock uniqueCategories={uniqueCategories} currentCategory={currentCategory} setCurrentCategory={setCurrentCategory} />
       <ProductCardsBlock products={productsToDisplay} setProducts={setProducts} />
       <button className="order-button" onClick={clearOrder}>Зробити замовлення</button>

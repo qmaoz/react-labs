@@ -95,15 +95,15 @@ p {
 
 
 
-.filtration-block, .add-product-form {
-  margin: 0 0 2em;
+.filtration-block {
+  margin: 0 auto 2em;
   width: fit-content;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
 }
 
-input, select {
+.filtration-block input, .filtration-block select {
   width: 15em;
   padding: 0.6em 1em;
 
@@ -119,18 +119,16 @@ input, select {
   outline: none;
 }
 
-input::placeholder {
-  font-size: inherit;
-  font-family: inherit; 
+.filtration-block input::placeholder {
   color: var(--text);
   opacity: 0.6;
 }
 
-input:hover, select:hover {
+.filtration-block input:hover, .filtration-block select:hover {
   border-color: var(--accent-border);
 }
 
-input:focus, select:focus {
+.filtration-block input:focus, .filtration-block select:focus {
   border-color: var(--accent);
   background-color: var(--bg);
   box-shadow: 0 0 0 3px var(--accent-bg);
@@ -141,13 +139,13 @@ input:focus, select:focus {
 }
 
 /* Disable the default arrows in Chrome/Safari for numeric fields */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+.filtration-block input[type="number"]::-webkit-inner-spin-button,
+.filtration-block input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.form-row {
+.filtration-block .form-row {
   display: flex;
   align-items: center;
   gap: 0.3em;
@@ -189,13 +187,12 @@ input[type="number"]::-webkit-outer-spin-button {
 button {
   display: block;
   width: 100%;
-  min-width: fit-content;
   padding: 0.6em 1.5em;
   margin: 0 auto;
   
   cursor: pointer;
   font-size: inherit;
-  font-family: inherit; 
+  font-family: inherit;
   border: none;
   color: var(--bg);
   background: var(--accent);
@@ -253,10 +250,7 @@ button:active {
   width: calc(33% - 0.5em);
 }
 
-.add-product-button {
-  margin: 1em 0 1em;
-  width: calc(33% - 0.5em);
-}
+
 
 .footer {
   padding: 1em 1em;
