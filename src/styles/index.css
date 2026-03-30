@@ -103,7 +103,7 @@ p {
   gap: 0.5em;
 }
 
-.filtration-block input {
+.filtration-block input, .filtration-block select {
   width: 15em;
   padding: 0.6em 1em;
 
@@ -124,11 +124,11 @@ p {
   opacity: 0.6;
 }
 
-.filtration-block input:hover {
+.filtration-block input:hover, .filtration-block select:hover {
   border-color: var(--accent-border);
 }
 
-.filtration-block input:focus {
+.filtration-block input:focus, .filtration-block select:focus {
   border-color: var(--accent);
   background-color: var(--bg);
   box-shadow: 0 0 0 3px var(--accent-bg);
@@ -152,6 +152,10 @@ p {
 }
 
 
+
+.warning {
+  color: var(--accent);
+}
 
 .product-cards-block {
   display: grid;
@@ -220,7 +224,7 @@ button:active {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.product-card.bought::after {
+.product-card.selected::after {
   position: absolute;
   top: 1.2em;
   right: -10.1em;
