@@ -10,6 +10,7 @@
   --border: #e2e8f0;
   --code-bg: #f8fafc;
   --accent: #2563eb;
+  --accent-red: #d55;
   --accent-bg: rgba(37, 99, 235, 0.05);
   --accent-border: rgba(37, 99, 235, 0.2);
   --social-bg: #f1f5f9;
@@ -70,27 +71,33 @@ h2 {
 }
 
 h1 {
+  font-size: 56px;
   text-align: center;
   margin-bottom: 1em;
   margin: 32px 0;
-  font-size: 56px;
   letter-spacing: -1.68px;
   @media (max-width: 1024px) {
     font-size: 36px;
     margin: 20px 0;
   }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5em;
   @media (max-width: 1024px) {
     font-size: 20px;
   }
 }
+
 p {
   margin: 0;
+}
+
+section {
+  margin-bottom: 2em;
 }
 
 
@@ -159,6 +166,10 @@ input[type="number"]::-webkit-outer-spin-button {
   color: var(--accent);
 }
 
+.error {
+  color: var(--accent-red);
+}
+
 .product-cards-block {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -191,7 +202,7 @@ button {
   width: 100%;
   min-width: fit-content;
   padding: 0.6em 1.5em;
-  margin: 0 auto;
+  margin: auto auto 0;
   
   cursor: pointer;
   font-size: inherit;
