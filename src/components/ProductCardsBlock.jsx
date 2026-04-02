@@ -1,10 +1,13 @@
 import ProductCard from "./ProductCard";
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ProductCardsBlock({ products, setProducts }) {
+  const { language } = useLanguage();
+
   return (
     <>
       {products.length === 0 ? (
-        <p className="warning">⚠️ Немає продуктів для відображення.</p>
+        <p className="warning">⚠️ {language === 'en' ? 'No products to display' : 'Немає продуктів для відображення'}.</p>
       ) : (
         <div className="product-cards-block">
           {products.map((product) => (

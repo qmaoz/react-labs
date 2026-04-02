@@ -12,7 +12,12 @@ import NotFoundPage from './pages/NotFoundPage';
 
 import Layout from './components/Layout';
 
+import { ThemeProvider } from "./context/ThemeContext";
+import { useLanguage } from './context/LanguageContext';
+
 export default function App() {
+  const { language } = useLanguage();
+
   const [products, setProducts] = useState(() => {
     const stored = localStorage.getItem('products-data');
 
@@ -20,7 +25,7 @@ export default function App() {
       try {
         return JSON.parse(stored);
       } catch (e) {
-        console.error("Помилка парсингу JSON", e);
+        console.error(language === 'en' ? 'JSON parsing error' : 'Помилка парсингу JSON', e);
       }
     }
 
@@ -37,21 +42,23 @@ export default function App() {
 
   return (
     <>
-      <div className="app">
-        <Routes>
-          <Route element={<Layout />}> {/* Header + Footer */}
-            <Route path='/' element={<HomePage products={products} setProducts={setProducts} />} />
-            <Route path="/products" element={<ProductsPage />}>
-              <Route index element={<ProductsHomePage />} />
-              <Route path='api' element={<ProductsApiPage />} />
-              <Route path='own' element={<OwnProductsPage products={products} setProducts={setProducts} />} />
+      <ThemeProvider>
+        <div className="app">
+          <Routes>
+            <Route element={<Layout />}> {/* Header + Footer */}
+              <Route path='/' element={<HomePage products={products} setProducts={setProducts} />} />
+              <Route path="/products" element={<ProductsPage />}>
+                <Route index element={<ProductsHomePage />} />
+                <Route path='api' element={<ProductsApiPage />} />
+                <Route path='own' element={<OwnProductsPage products={products} setProducts={setProducts} />} />
+              </Route>
+              <Route path='/about' element={<AboutPage />} />
+              <Route path='/product/:id' element={<ProductDetailsPage products={products} />} />
+              <Route path='*' element={<NotFoundPage />} />
             </Route>
-            <Route path='/about' element={<AboutPage />} />
-            <Route path='/product/:id' element={<ProductDetailsPage products={products} />} />
-            <Route path='*' element={<NotFoundPage />} />
-          </Route>
-        </Routes>
-      </div>
+          </Routes>
+        </div>
+      </ThemeProvider>
     </>
   );
 }
