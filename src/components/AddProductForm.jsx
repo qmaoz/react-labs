@@ -1,14 +1,17 @@
 import { useState } from "react";
+import { Navigate } from "react-router";
 
 export default function AddProductForm({ setProducts }) {
-  const [name, setName] = useState('');
+  const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
   const [price, setPrice] = useState(0);
+
+  const [newProduct, setNewProduct] = useState(null);
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (name.trim() === '') {
+    if (title.trim() === '') {
       alert('Пуста назва товару не приймається!');
       return;
     }
@@ -23,22 +26,24 @@ export default function AddProductForm({ setProducts }) {
       return;
     }
 
-    const newProduct = {
+    const productToAdd = {
       id: Date.now(),
-      name: name.trim(),
+      title: title.trim(),
       category: category.trim(),
       price: Math.abs(price),
       isSelected: false
     };
 
     // Back to default values
-    setName('');
+    setTitle('');
     setCategory('');
     setPrice(0);
 
     setProducts(prev =>
-      [...prev, newProduct]
+      [...prev, productToAdd]
     );
+
+    setNewProduct(productToAdd);
 
     alert('Товар додано!');
   }
@@ -48,8 +53,8 @@ export default function AddProductForm({ setProducts }) {
       <form className="add-product-form" onSubmit={handleSubmit}>
         <h2>Додати товар</h2>
         <div className="form-row">
-          <label htmlFor="name">Назва товару: </label>
-          <input type="text" value={name} onChange={e => setName(e.target.value)} name="name" id="name" placeholder="Назву товару" /><br />
+          <label htmlFor="title">Назва товару: </label>
+          <input type="text" value={title} onChange={e => setTitle(e.target.value)} name="title" id="title" placeholder="Назву товару" /><br />
         </div>
         <div className="form-row">
           <label htmlFor="category">Категорія: </label>
@@ -61,6 +66,7 @@ export default function AddProductForm({ setProducts }) {
         </div>
         <button className="add-product-button" type='submit'>Додати товар</button>
       </form>
+      {newProduct && <Navigate to={`/product/${newProduct.id}`} state={{isRedirectAfterCreation: true}} replace={false} />}
     </>
   );
 }

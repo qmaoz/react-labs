@@ -1,7 +1,16 @@
 import { useEffect, useState } from 'react';
-import Header from './components/Header.jsx';
-import Main from './components/Main.jsx';
-import Footer from './components/Footer.jsx';
+import { Route, Routes } from 'react-router';
+
+import HomePage from './pages/HomePage';
+import ProductsPage from './pages/ProductsPage';
+import ProductsHomePage from './pages/ProductsHomePage';
+import ProductsApiPage from './pages/ProductsApiPage';
+import OwnProductsPage from './pages/OwnProductsPage';
+import AboutPage from './pages/AboutPage';
+import ProductDetailsPage from './pages/ProductDetailsPage';
+import NotFoundPage from './pages/NotFoundPage';
+
+import Layout from './components/Layout';
 
 export default function App() {
   const [products, setProducts] = useState(() => {
@@ -29,9 +38,19 @@ export default function App() {
   return (
     <>
       <div className="app">
-        <Header />
-        <Main products={products} setProducts={setProducts} />
-        <Footer />
+        <Routes>
+          <Route element={<Layout />}> {/* Header + Footer */}
+            <Route path='/' element={<HomePage products={products} setProducts={setProducts} />} />
+            <Route path="/products" element={<ProductsPage />}>
+              <Route index element={<ProductsHomePage />} />
+              <Route path='api' element={<ProductsApiPage />} />
+              <Route path='own' element={<OwnProductsPage products={products} setProducts={setProducts} />} />
+            </Route>
+            <Route path='/about' element={<AboutPage />} />
+            <Route path='/product/:id' element={<ProductDetailsPage products={products} />} />
+            <Route path='*' element={<NotFoundPage />} />
+          </Route>
+        </Routes>
       </div>
     </>
   );
