@@ -1,0 +1,93 @@
+.warning {
+  color: var(--accent);
+}
+
+.error {
+  color: var(--accent-red);
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 1em;
+}
+
+a {
+  color: var(--text-h);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: inherit
+}
+
+a.active {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: underline;
+}
+
+p {
+  margin: 0;
+}
+
+p.paragraph {
+  margin-bottom: 1em;
+}
+
+section {
+  margin-bottom: 2em;
+}
+
+h1, h2, h3 {
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  margin-bottom: 1em;
+  margin: 32px 0;
+  letter-spacing: -1.68px;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5em;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+
+select {
+  width: 15em;
+  padding: 0.6em 1em;
+
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-h);
+  background-color: var(--bg);
+
+  border: 1px solid var(--border);
+  border-radius: 0.5em;
+  outline: none;
+}
+
+select:hover {
+  border-color: var(--accent-border);
+}
+
+select:focus {
+  border-color: var(--accent);
+  background-color: var(--bg);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}

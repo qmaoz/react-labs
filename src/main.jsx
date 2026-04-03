@@ -1,9 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './styles/index.css'
-import App from './App.jsx'
-import { BrowserRouter } from 'react-router'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router';
 
+import './styles/tokens.css';
+import './styles/reset.css';
+import './styles/global.css';
+import './styles/index.css';
+
+import App from './App.jsx'
 import { LanguageProvider } from "./context/LanguageContext";
 
 createRoot(document.getElementById('root')).render(
@@ -13,5 +17,5 @@ createRoot(document.getElementById('root')).render(
         <App />
       </LanguageProvider>
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 )

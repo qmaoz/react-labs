@@ -1,0 +1,41 @@
+.title {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.topRightCornerPoint {
+  position: absolute;
+  top: 0;
+  right: -125px;
+  background: #0f0;
+  width: 0px;
+  height: 0px;
+}
+
+.productCardTape {
+  position: absolute;
+  /* 1. Starting point in the upper-right corner */
+  top: 0;
+  right: 0;
+
+  /* 2. Shift the ribbon down and to the side by the same distance */
+  /* The larger the --offset, the farther the ribbon is from the corner */
+  --offset: 35px;
+  transform: translate(calc(-1* var(--offset)), calc(0.650593124 * var(--offset))) rotate(45deg);
+  transform-origin: center center;
+
+  /* 4. The width must be sufficient to cover the corner */
+  width: 250px; 
+  padding: 0.4em 0;
+  text-align: center;
+  line-height: 1;
+
+  color: var(--white);
+  background: var(--red-bg);
+  
+  display: none; 
+}
+
+.productCardTape.shown {
+  display: block;
+}

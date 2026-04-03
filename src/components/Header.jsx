@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { Button } from './ui';
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -20,10 +21,9 @@ export default function Header() {
           <li><NavLink to='/products' end>{language === 'en' ? 'Products' : 'Товари'}</NavLink></li>
           <li><NavLink to='/about'>{language === 'en' ? 'About Us' : 'Про нас'}</NavLink></li>
         </ul>
-        <button onClick={toggleTheme} className="change-theme-button">
-          {/*  */}
+        <Button onClick={toggleTheme} id="change-theme-button">
           {theme === 'light' ? '🌙' : '☀️'}
-        </button>
+        </Button>
         <select name="language" id="language" value={language} onChange={handleLanguageChange}>
           <option value="uk">{language === 'en' ? 'Ukrainian' : 'Українська'}</option>
           <option value="en">{language === 'en' ? 'English' : 'Англійська'}</option>

@@ -3,6 +3,7 @@ import FiltrationBlock from "./FiltrationBlock";
 import ProductCardsBlock from "./ProductCardsBlock";
 import AddProductForm from "./AddProductForm"
 import { useLanguage } from '../context/LanguageContext';
+import { Button } from "./ui";
 
 export default function Main({ products, setProducts }) {
   const { language } = useLanguage();
@@ -42,9 +43,9 @@ export default function Main({ products, setProducts }) {
         <ProductCardsBlock products={productsToDisplay} setProducts={setProducts} />
       </section>
 
-      <button className="order-button" onClick={clearOrder}>
+      <Button id="order-button" onClick={clearOrder}>
         {language === 'en' ? 'Place order' : 'Зробити замовлення'}
-      </button>
+      </Button>
     </main>
   );
 }

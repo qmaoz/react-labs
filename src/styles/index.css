@@ -1,10 +1,4 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
 :root {
-  --white: #fff;
-
   font: 18px/1.6 'Inter', system-ui, sans-serif;
   letter-spacing: -0.011em;
   color-scheme: light dark;
@@ -22,95 +16,6 @@
   }
 }
 
-[data-theme='light'] {
-  --text: #222;
-  --text-h: #111;
-  --bg: #fff;
-  --border: #e2e8f0;
-  --code-bg: #f8fafc;
-  --accent: #2563eb;
-  --accent-red: #e22;
-  --red-bg: #f44;
-
-  --accent-bg: rgba(37, 99, 235, 0.2);
-  --accent-border: rgba(37, 99, 235, 0.2);
-}
-
-[data-theme='dark'] {
-  --text: #eee;
-  --text-h: #fff;
-  --bg: #0f172a;
-  --border: #1e293b;
-  --code-bg: #1e293b;
-  --accent: #60a5fa;
-  --accent-red: #f99;
-  --red-bg: #d55;
-  --accent-bg: rgba(96, 165, 250, 0.1);
-  --accent-border: rgba(96, 165, 250, 0.3);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #eee;
-    --text-h: #fff;
-    --bg: #0f172a;
-    --border: #1e293b;
-    --code-bg: #1e293b;
-    --accent: #60a5fa;
-    --accent-red: #f99;
-    --red-bg: #d55;
-    --accent-bg: rgba(96, 165, 250, 0.1);
-    --accent-border: rgba(96, 165, 250, 0.3);
-  }
-
-  [data-theme='light'] {
-    --text: #222;
-    --text-h: #111;
-    --bg: #fff;
-    --border: #e2e8f0;
-    --code-bg: #f8fafc;
-    --accent: #2563eb;
-    --accent-red: #e22;
-    --red-bg: #f44;
-
-    --accent-bg: rgba(37, 99, 235, 0.2);
-    --accent-border: rgba(37, 99, 235, 0.2);
-  }
-}
-
-@media (prefers-color-scheme: white) {
-  :root {
-    --text: #222;
-    --text-h: #111;
-    --bg: #fff;
-    --border: #e2e8f0;
-    --code-bg: #f8fafc;
-    --accent: #2563eb;
-    --accent-red: #e22;
-    --red-bg: #f44;
-
-    --accent-bg: rgba(37, 99, 235, 0.2);
-    --accent-border: rgba(37, 99, 235, 0.2);
-  }
-
-  [data-theme='dark'] {
-    --text: #eee;
-    --text-h: #fff;
-    --bg: #0f172a;
-    --border: #1e293b;
-    --code-bg: #1e293b;
-    --accent: #60a5fa;
-    --accent-red: #f99;
-    --red-bg: #d55;
-    --accent-bg: rgba(96, 165, 250, 0.1);
-    --accent-border: rgba(96, 165, 250, 0.3);
-  }
-}
-
-body {
-  margin: 0;
-}
-
 #root {
   width: 1126px;
   max-width: 100%;
@@ -118,15 +23,6 @@ body {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
-}
-
-table {
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 1em;
 }
 
 header {
@@ -157,66 +53,10 @@ nav a {
   font-size: 1.5em;
 }
 
-.change-theme-button {
+#change-theme-button {
   width: max-content;
   margin: 0;
 }
-
-a.active {
-  pointer-events: none;
-  cursor: default;
-  text-decoration: underline;
-}
-
-a {
-  color: var(--text-h);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-  text-decoration-color: inherit
-}
-
-p.paragraph {
-  margin-bottom: 1em;
-}
-
-h1, h2, h3 {
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  margin-bottom: 1em;
-  margin: 32px 0;
-  letter-spacing: -1.68px;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.01em;
-  margin: 0 0 0.5em;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-
-p {
-  margin: 0;
-}
-
-section {
-  margin-bottom: 2em;
-}
-
-
 
 .filtration-block, .add-product-form {
   margin: 0 0 2em;
@@ -226,46 +66,8 @@ section {
   gap: 0.5em;
 }
 
-input, select {
-  width: 15em;
-  padding: 0.6em 1em;
-
-  font-family: inherit;
-  font-size: 0.95rem;
-  color: var(--text-h);
-  background-color: var(--bg);
-
-  border: 1px solid var(--border);
-  border-radius: 0.5em;
-  outline: none;
-}
-
-input::placeholder {
-  font-size: inherit;
-  font-family: inherit; 
-  color: var(--text);
-  opacity: 0.6;
-}
-
-input:hover, select:hover {
-  border-color: var(--accent-border);
-}
-
-input:focus, select:focus {
-  border-color: var(--accent);
-  background-color: var(--bg);
-  box-shadow: 0 0 0 3px var(--accent-bg);
-}
-
 .filtration-block input[type="number"] {
   width: 8em;
-}
-
-/* Disable the default arrows in Chrome/Safari for numeric fields */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 
 .form-row {
@@ -276,127 +78,20 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 
-.warning {
-  color: var(--accent);
-}
-
-.error {
-  color: var(--accent-red);
-}
-
 .product-cards-block {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1em;
 }
 
-.product-card {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  padding: 1em;
-  position: relative;
-  overflow: hidden;
-
-  text-align: left;
-  background-color: var(--accent-bg);
-}
-
-.product-card .title {
-  font-size: 1.5em;
-  text-align: center;
-}
-
-.product-card .price, .product-card .category {
-  text-align: left;
-}
-
-button {
-  display: block;
-  width: 100%;
-  min-width: fit-content;
-  padding: 0.6em 1.5em;
-  margin: auto auto 0;
-  
-  cursor: pointer;
-  font-size: inherit;
-  font-family: inherit; 
-  border: none;
-  color: var(--bg);
-  background: var(--accent);
-  border-radius: 0.5em;
-  transition:
-    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-weight: 600;
-  
-  backface-visibility: hidden;
-  will-change: transform;
-}
-
-button:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-button:hover {
-  filter: brightness(110%);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-button:active {
-  transform: scale(0.96);
-  filter: brightness(90%);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.top-right-corner-point {
-  position: absolute;
-  top: 0;
-  right: -125px;
-  background: #0f0;
-  width: 1px;
-  height: 1px;
-}
-
-.product-card-tape {
-  position: absolute;
-  /* 1. Starting point in the upper-right corner */
-  top: 0;
-  right: 0;
-
-  /* 2. Shift the ribbon down and to the side by the same distance */
-  /* The larger the --offset, the farther the ribbon is from the corner */
-  --offset: 35px;
-  transform: translate(calc(-1* var(--offset)), calc(0.650593124 * var(--offset))) rotate(45deg);
-  transform-origin: center center;
-
-  /* 4. The width must be sufficient to cover the corner */
-  width: 250px; 
-  padding: 0.4em 0;
-  text-align: center;
-  line-height: 1;
-
-  color: var(--white);
-  background: var(--red-bg);
-  
-  display: none; 
-}
-
-.product-card-tape.shown {
-  display: block;
-}
 
 
-
-.order-button, .go-back-button {
+#order-button, #go-back-button {
   margin: 2em auto 1em;
   width: calc(33% - 0.5em);
 }
 
-.add-product-button {
+#add-product-button {
   margin: 1em 0 1em;
   width: calc(33% - 0.5em);
 }

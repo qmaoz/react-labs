@@ -1,0 +1,41 @@
+.input {
+  width: 15em;
+  padding: 0.6em 1em;
+
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-h);
+  background-color: var(--bg);
+
+  border: 1px solid var(--border);
+  border-radius: 0.5em;
+  outline: none;
+}
+
+.input::placeholder {
+  font-size: inherit;
+  font-family: inherit; 
+  color: var(--text);
+  opacity: 0.6;
+}
+
+.input:hover {
+  border-color: var(--accent-border);
+}
+
+.input:focus {
+  border-color: var(--accent);
+  background-color: var(--bg);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+/* Disable the default arrows in Chrome/Safari for numeric fields */
+.input[type="number"]::-webkit-inner-spin-button,
+.input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.label {
+  margin-right: 0.2em;
+}

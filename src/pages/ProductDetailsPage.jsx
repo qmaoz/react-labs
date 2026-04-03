@@ -1,5 +1,6 @@
 import { useParams, useNavigate, useLocation } from "react-router";
 import { useLanguage } from '../context/LanguageContext';
+import { Button } from "../components/ui";
 
 export default function ProductDetailsPage({ products }) {
   const navigate = useNavigate();
@@ -51,9 +52,9 @@ export default function ProductDetailsPage({ products }) {
         </>
       )}
 
-      <button className="go-back-button" onClick={() => navigate(-1)}>
+      <Button id="go-back-button" onClick={() => navigate(-1)}>
         {language === 'en' ? 'Back to list' : 'Повернутися до списку'}
-      </button>
+      </Button>
     </>
   );
 }

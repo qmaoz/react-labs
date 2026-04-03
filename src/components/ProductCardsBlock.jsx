@@ -1,4 +1,4 @@
-import ProductCard from "./ProductCard";
+import ProductCard from "./ProductCard/ProductCard";
 import { useLanguage } from '../context/LanguageContext';
 
 export default function ProductCardsBlock({ products, setProducts }) {

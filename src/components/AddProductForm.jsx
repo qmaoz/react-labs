@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Navigate } from "react-router";
 import { useLanguage } from "../context/LanguageContext";
 
+import { Button, Input } from "./ui";
+
 export default function AddProductForm({ setProducts }) {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
@@ -57,50 +59,44 @@ export default function AddProductForm({ setProducts }) {
         <h2>{language === 'en' ? 'Add product' : 'Додати товар'}</h2>
         
         <div className="form-row">
-          <label htmlFor="title">
-            {language === 'en' ? 'Product title:' : 'Назва товару:'}
-          </label>
-          <input 
+          <Input 
             type="text" 
             value={title} 
             onChange={e => setTitle(e.target.value)} 
             name="title" 
-            id="title" 
+            id="title"
+            label={language === 'en' ? 'Product title:' : 'Назва товару:'}
             placeholder={language === 'en' ? 'Product name' : 'Назва товару'} 
           /><br />
         </div>
 
         <div className="form-row">
-          <label htmlFor="category">
-            {language === 'en' ? 'Category:' : 'Категорія:'}
-          </label>
-          <input 
+          <Input 
             type="text" 
             value={category} 
             onChange={e => setCategory(e.target.value)} 
             name="category" 
-            id="category" 
+            id="category"
+            label={language === 'en' ? 'Category:' : 'Категорія:'}
             placeholder={language === 'en' ? 'Product category' : 'Категорія товару'} 
           /><br />
         </div>
 
         <div className="form-row">
-          <label htmlFor="price">
-            {language === 'en' ? 'Price:' : 'Ціна:'}
-          </label>
-          <input 
+          <Input 
             type="number" 
             value={price} 
             onChange={e => setPrice(e.target.value)} 
             name="price" 
-            id="price" 
+            id="price"
+            label={language === 'en' ? 'Price:' : 'Ціна:'}
             placeholder={language === 'en' ? 'Product price' : 'Ціна товару'} 
           /><br />
         </div>
 
-        <button className="add-product-button" type='submit'>
+        <Button variant='primary' size='lg' className="add-product-button" type='submit'>
           {language === 'en' ? 'Add product' : 'Додати товар'}
-        </button>
+        </Button>
       </form>
 
       {newProduct && (
